@@ -5,8 +5,8 @@ import {
   validatorCompiler,
   type ZodTypeProvider
 } from 'fastify-type-provider-zod';
-import { sql } from './db/connection.ts';
 import { env } from './env.ts';
+import { getRoomsRoute } from './http/routes/get-rooms.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 app.register(fastifyCors, {
@@ -16,7 +16,7 @@ app.setSerializerCompiler(serializerCompiler);
 app.setValidatorCompiler(validatorCompiler);
 
 app.get('/health', () => ({ status: 'OK' }));
-app.get('/', () => ({ message: sql }));
+app.register(getRoomsRoute);
 
 app.listen({ port: env.PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.PORT}`);

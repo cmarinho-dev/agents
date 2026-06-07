@@ -1,5 +1,5 @@
-import { rooms } from "../schema/rooms.ts";
+import { rooms } from '../schema/rooms.ts';
 
 export const schema = {
-    rooms, 
-}
+  rooms
+};
