@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "ultracite/biome/core"
+  ],
+  "javascript" : {
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingCommas": "none",
+      "semicolons": "always"
+    }
+  },
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json"
+}
